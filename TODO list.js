@@ -1,38 +1,35 @@
-let btn = document.querySelector("button")
-let ul = document.querySelector("ul")
-let inp = document.querySelector("input")
+let btn = document.querySelector("#addBtn");
+let ul = document.querySelector("#taskList");
+let inp = document.querySelector("#taskInput");
 
-btn.addEventListener("click" , function(){
-    let item = document.createElement("li")
-    item.innerText=inp.value;
+btn.addEventListener("click", function(){
 
-    let delBtn= document.createElement("Button")
-    delBtn.innerText="delete"
-    delBtn.classList.add("delete");
-    item.appendChild(delBtn);
+    let task = inp.value.trim();
 
-    ul.appendChild(item)
-    console.log(inp.value)
-    inp.value="";
-})
-
-ul.addEventListener("click",function(event){
-    if(event.target.nodeName == "BUTTON"){
-        let listItem = event.target.parentElement;
-        listItem.remove()
-        console.log("deleted")
+    if(task === ""){
+        alert("Please enter a task");
+        return;
     }
-// console.dir(event.target.nodeName)
-    // console.log("Button clicked")
-})
 
-// let delBtns = document.querySelectorAll(".delete")
-// for(delBtn of delBtns){
-//     delBtn.addEventListener("click",function(){
-//         console.log("element deleted");
+    let li = document.createElement("li");
+    li.innerText = task;
 
-//         let par = this.parentElement;
-//         console.log(par)
-//         par.remove();
-//     })
-// }
+    let delBtn = document.createElement("button");
+    delBtn.innerText = "Delete";
+    delBtn.classList.add("delete");
+
+    li.appendChild(delBtn);
+    ul.appendChild(li);
+
+    inp.value = "";
+
+});
+
+ul.addEventListener("click", function(event){
+
+    if(event.target.classList.contains("delete")){
+        let listItem = event.target.parentElement;
+        listItem.remove();
+    }
+
+});
