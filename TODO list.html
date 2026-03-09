@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Todo App</title>
+
+<title>TaskFlow</title>
 
 <link rel="stylesheet" href="TODO list.css">
 
@@ -11,30 +14,66 @@
 
 <body>
 
+<div class="background"></div>
+
 <div class="container">
 
-<h1>✨ Todo App</h1>
+<div class="header">
 
-<div class="task-input">
+<h1>⚡ TaskFlow</h1>
 
-<input id="taskInput" type="text" placeholder="Enter your task...">
-<button id="addBtn">Add Task</button>
+<button id="themeToggle">🌙</button>
 
 </div>
 
-<ul id="taskList">
+<input type="text" id="search" placeholder="Search tasks...">
 
-<li>
-Eat Food
-<button class="delete">Delete</button>
-</li>
+<div class="task-input">
 
-<li>
-Sleep
-<button class="delete">Delete</button>
-</li>
+<input type="text" id="taskInput" placeholder="Enter task">
 
-</ul>
+<select id="priority">
+<option value="low">🟢 Low</option>
+<option value="medium">🟡 Medium</option>
+<option value="high">🔴 High</option>
+</select>
+
+<input type="date" id="dueDate">
+
+<button id="addBtn">Add</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3 id="totalTasks">0</h3>
+<p>Total</p>
+</div>
+
+<div class="stat">
+<h3 id="completedTasks">0</h3>
+<p>Done</p>
+</div>
+
+<div class="stat">
+<h3 id="pendingTasks">0</h3>
+<p>Pending</p>
+</div>
+
+</div>
+
+<div class="progress">
+
+<span id="progressText">0 / 0 Completed</span>
+
+<div class="progress-bar">
+<div id="progressFill"></div>
+</div>
+
+</div>
+
+<ul id="taskList"></ul>
 
 </div>
 
